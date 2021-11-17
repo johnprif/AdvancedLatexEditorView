@@ -19,4 +19,6 @@ public class AddLatexCommand implements Command  {
 		versionsManager.saveContents();
 	}
 
+	
+	
 }

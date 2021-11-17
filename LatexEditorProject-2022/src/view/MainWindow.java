@@ -24,6 +24,10 @@ public class MainWindow {
 	private JEditorPane editorPane = new JEditorPane();
 	private LatexEditorView latexEditorView;
 	
+	
+	/**
+	 * Launch the application.
+	 */
 	public void editContents(String type) {
 		String contents = editorPane.getText();
 		String before = contents.substring(0, editorPane.getCaretPosition());
@@ -80,10 +84,6 @@ public class MainWindow {
 		latexEditorView.getController().enact("addLatex");
 		editorPane.setText(contents);
 	}
-	/**
-	 * Launch the application.
-	 */
-	
 
 	/**
 	 * Create the application.
@@ -101,7 +101,7 @@ public class MainWindow {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 823, 566);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -174,6 +174,11 @@ public class MainWindow {
 		
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mnFile.add(mntmExit);
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
 		
 		
 		menuBar.add(mnCommands);

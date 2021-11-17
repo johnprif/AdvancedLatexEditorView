@@ -55,13 +55,13 @@ public class VersionsManager {
 		latexEditorView.setCurrentDocument(document);
 	}
 	
-	public Document setPreviousVersion() {
-		return null;
-	}
+//	public Document setPreviousVersion() {
+//		return null;
+//	}
 	
-	public void rollbackToPreviousVersion() {
-		
-	}
+//	public void rollbackToPreviousVersion() {
+//		
+//	}
 
 	public String getType() {
 		// TODO Auto-generated method stub
@@ -147,8 +147,8 @@ public class VersionsManager {
 		
 	}
 
-	public VersionsStrategy getStrategy() {
-		// TODO Auto-generated method stub
-		return strategy;
-	}
+//	public VersionsStrategy getStrategy() {
+//		// TODO Auto-generated method stub
+//		return strategy;
+//	}
 }
