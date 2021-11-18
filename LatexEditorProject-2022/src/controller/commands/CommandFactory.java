@@ -2,18 +2,17 @@ package controller.commands;
 
 import java.util.HashMap;
 
+import model.Document;
 import model.DocumentManager;
 import model.VersionsManager;
+import view.LatexEditorView;
 
 public class CommandFactory {
 	private DocumentManager documentManager;
-//	private VersionsManager versionsManager;
 	
 	
 	public CommandFactory() {
-//		super();
-//		this.versionsManager = versionsManager;
-		documentManager = new DocumentManager();
+		documentManager = DocumentManager.getInstance();
 	}
 
 

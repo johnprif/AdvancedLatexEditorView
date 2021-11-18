@@ -14,25 +14,21 @@ import controller.commands.LoadCommand;
 import controller.commands.RollbackToPreviousVersionCommand;
 import controller.commands.SaveCommand;
 import model.VersionsManager;
+import view.LatexEditorView;
 
 public class LatexEditorController{
 	private HashMap<String, Command> commands;
-	
+
 	public LatexEditorController() {
-//		CommandFactory commandFactory = new CommandFactory(versionsManager);
 		CommandFactory commandFactory = new CommandFactory();
+		String [] array = {"addLatex","changeVersionsStrategy","create",
+				"disableVersionsManagement","edit","enableVersionsManagement",
+				"load","rollbackToPreviousVersion","save"};
 		
 		commands = new HashMap<String, Command>(); 
-		commands.put("addLatex", commandFactory.createCommand("addLatex"));
-		commands.put("changeVersionsStrategy", commandFactory.createCommand("changeVersionsStrategy"));
-		commands.put("create", commandFactory.createCommand("create"));
-		commands.put("disableVersionsManagement", commandFactory.createCommand("disableVersionsManagement"));
-		commands.put("edit", commandFactory.createCommand("edit"));
-		commands.put("enableVersionsManagement", commandFactory.createCommand("enableVersionsManagement"));
-		commands.put("load", commandFactory.createCommand("load"));
-		commands.put("rollbackToPreviousVersion", commandFactory.createCommand("rollbackToPreviousVersion"));
-		commands.put("save", commandFactory.createCommand("save"));
-		
+		for(int i = 0; i < array.length; i++) {
+			commands.put(array[i],commandFactory.createCommand(array[i]));
+		}
 	}
 	
 	public void enact(String command) {

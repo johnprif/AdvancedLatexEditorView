@@ -17,6 +17,22 @@ public class LatexEditorView {
 	private String strategy;
 	private VersionsManager versionsManager;
 	
+	
+private static LatexEditorView instance = null;
+	
+	private LatexEditorView() {
+	}
+	
+	public static LatexEditorView getInstance()
+	{
+		if (instance == null)
+		{
+			instance = new LatexEditorView();
+		}
+        return instance;
+	}
+	
+	
 	public VersionsManager getVersionsManager() {
 		return versionsManager;
 	}

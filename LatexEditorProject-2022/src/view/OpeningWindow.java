@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 public class OpeningWindow {
 
 	private JFrame frame;
-	private LatexEditorView latexEditorView;
+	private LatexEditorView latexEditorView; // == null
 	/**
 	 * Launch the application.
 	 */
@@ -40,7 +40,7 @@ public class OpeningWindow {
 	 */
 	public OpeningWindow() {
 		VersionsStrategy versionsStrategy = new VolatileVersionsStrategy();
-		latexEditorView = new LatexEditorView();
+		latexEditorView = LatexEditorView.getInstance();
 //		VersionsManager versionsManager = new VersionsManager(versionsStrategy, latexEditorView);
 		VersionsManager versionsManager = VersionsManager.getInstance();
 		versionsManager.setStrategy(versionsStrategy);

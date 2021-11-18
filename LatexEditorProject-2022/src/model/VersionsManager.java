@@ -14,11 +14,7 @@ public class VersionsManager {
 
 	private static VersionsManager instance = null;
 	
-	
-//	private VersionsManager(VersionsStrategy versionsStrategy, LatexEditorView latexEditorView) {
 	private VersionsManager() {
-//		this.strategy = versionsStrategy;
-//		this.latexEditorView = latexEditorView;
 	}
 	
 	public static VersionsManager getInstance()
@@ -55,33 +51,27 @@ public class VersionsManager {
 		latexEditorView.setCurrentDocument(document);
 	}
 	
-//	public Document setPreviousVersion() {
-//		return null;
-//	}
-	
-//	public void rollbackToPreviousVersion() {
-//		
-//	}
+
 
 	public String getType() {
 		// TODO Auto-generated method stub
 		return latexEditorView.getType();
 	}
 
-	public void saveContents() {
-		// TODO Auto-generated method stub
-		latexEditorView.saveContents();
-	}
+//	public void saveContents() {
+//		// TODO Auto-generated method stub
+//		latexEditorView.saveContents();
+//	}
 
-	public void saveToFile() {
-		// TODO Auto-generated method stub
-		latexEditorView.saveToFile();
-	}
+//	public void saveToFile() {
+//		// TODO Auto-generated method stub
+//		latexEditorView.saveToFile();
+//	}
 
-	public void loadFromFile() {
-		// TODO Auto-generated method stub
-		latexEditorView.loadFromFile();
-	}
+//	public void loadFromFile() {
+//		// TODO Auto-generated method stub
+//		latexEditorView.loadFromFile();
+//	}
 
 	public void enableStrategy() {
 		// TODO Auto-generated method stub
