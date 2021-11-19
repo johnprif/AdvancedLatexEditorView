@@ -58,20 +58,6 @@ public class VersionsManager {
 		return latexEditorView.getType();
 	}
 
-//	public void saveContents() {
-//		// TODO Auto-generated method stub
-//		latexEditorView.saveContents();
-//	}
-
-//	public void saveToFile() {
-//		// TODO Auto-generated method stub
-//		latexEditorView.saveToFile();
-//	}
-
-//	public void loadFromFile() {
-//		// TODO Auto-generated method stub
-//		latexEditorView.loadFromFile();
-//	}
 
 	public void enableStrategy() {
 		// TODO Auto-generated method stub

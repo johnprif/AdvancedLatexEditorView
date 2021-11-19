@@ -1,17 +1,22 @@
 package controller.commands;
 
+import model.Document;
 import model.VersionsManager;
 import view.LatexEditorView;
 
 public class EditCommand implements Command {
 	private VersionsManager versionsManager;
 	private LatexEditorView latexEditorView;
+	private Document currentDocument;
+	private String text;
 	
 	public EditCommand() {
 //		super();
 //		this.versionsManager = versionsManager;
 		versionsManager = VersionsManager.getInstance();
 		latexEditorView = LatexEditorView.getInstance();
+		currentDocument = latexEditorView.getCurrentDocument();
+		text = latexEditorView.getText();
 	}
 
 
@@ -21,9 +26,13 @@ public class EditCommand implements Command {
 //		versionsManager.saveContents();
 		saveContents();
 	}
-
+	
 	public void saveContents() {
 		// TODO Auto-generated method stub
-		latexEditorView.saveContents();
+		if(versionsManager.isEnabled()) {
+			versionsManager.putVersion(currentDocument);
+			currentDocument.changeVersion();
+		}
+		currentDocument.setContents(text);
 	}
 }
