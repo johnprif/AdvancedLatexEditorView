@@ -25,6 +25,8 @@ public class SaveCommand implements Command {
 		document = latexEditorView.getCurrentDocument();
 		fileName = latexEditorView.getFilename();
 		document.save(fileName);
+		
+		System.out.println("Save Commands contents = "+document.getContents());
 	}
 //----------------------------------------------------------------
 }

@@ -15,8 +15,7 @@ public class AddLatexCommand implements Command  {
 //		this.versionsManager = versionsManager;
 		versionsManager = VersionsManager.getInstance();
 		latexEditorView = LatexEditorView.getInstance();
-		currentDocument = latexEditorView.getCurrentDocument();
-		text = latexEditorView.getText();
+		
 	}
 
 
@@ -27,7 +26,8 @@ public class AddLatexCommand implements Command  {
 	}
 	
 	public void saveContents() {
-		// TODO Auto-generated method stub
+		currentDocument = latexEditorView.getCurrentDocument();
+		text = latexEditorView.getText();
 		if(versionsManager.isEnabled()) {
 			versionsManager.putVersion(currentDocument);
 			currentDocument.changeVersion();

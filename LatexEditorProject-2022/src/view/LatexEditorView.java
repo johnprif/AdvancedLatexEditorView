@@ -72,11 +72,9 @@ public class LatexEditorView {
 	}
 
 	public String getFilename() {
-		System.out.println("LatexEditorView = "+filename);
 		return filename;
 	}
 	public void setFilename(String filename) {
-		System.out.println("LatexEditorView = "+filename);
 		this.filename = filename;
 	}
 	
