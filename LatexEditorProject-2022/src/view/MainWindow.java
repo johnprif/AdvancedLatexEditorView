@@ -8,12 +8,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JTextPane;
 
+import controller.commands.Command;
 import model.Document;
 
 import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
 
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JCheckBoxMenuItem;
@@ -24,10 +26,52 @@ public class MainWindow {
 	private JEditorPane editorPane = new JEditorPane();
 	private LatexEditorView latexEditorView;
 	
-	
+	public void editContents(String type) {
+		String contents = editorPane.getText();
+		String before = contents.substring(0, editorPane.getCaretPosition());
+		String after = contents.substring(editorPane.getCaretPosition());
+		String [] selectType = { "chapter", "section", "subsection", "subsubsection", "enumerate", "itemize", "table", "figure"};
+		String [] input = {"\n\\chapter{...}", "\n\\section{...}", "\n\\subsection{...}",  "\n\\subsubsection{...}",
+				"\\begin{enumerate}\n"+
+				"\\item ...\n"+
+				"\\item ...\n"+
+				"\\end{enumerate}\n",
+				//itemize
+				"\\begin{itemize}\n"+
+				"\\item ...\n"+
+				"\\item ...\n"+
+				"\\end{itemize}\n",
+				//table
+				"\\begin{table}\n"+
+				"\\caption{....}\\label{...}\n"+
+				"\\begin{tabular}{|c|c|c|}\n"+
+				"\\hline\n"+
+				"... &...&...\\\\\n"+
+				"... &...&...\\\\\n"+
+				"... &...&...\\\\\n"+
+				"\\hline\n"+
+				"\\end{tabular}\n"+
+				"\\end{table}\n",
+				//figure
+				"\\begin{figure}\n"+
+				"\\includegraphics[width=...,height=...]{...}\n"+
+				"\\caption{....}\\label{...}\n"+
+				"\\end{figure}\n"};
+		
+		for(int i = 0; i < selectType.length; i++) {
+			if(type.equals(selectType[i])){
+				contents = before + input[i] + "\n"+after;
+			}
+		}
+		latexEditorView.setText(contents);
+		latexEditorView.getController().enact("addLatex");
+		editorPane.setText(contents);
+	}
 	/**
 	 * Launch the application.
 	 */
+	
+
 	/**
 	 * Create the application.
 	 * @param latexEditorView 
@@ -38,73 +82,13 @@ public class MainWindow {
 		frame.setVisible(true);
 	}
 
-
-	public void editContents(String type) {
-		String contents = editorPane.getText();
-		String before = contents.substring(0, editorPane.getCaretPosition());
-		String after = contents.substring(editorPane.getCaretPosition());
-		
-		if(type.equals("chapter")) {
-			contents = before + "\n\\chapter{...}"+"\n"+after;
-		}
-		else if(type.equals("section")) {
-			contents = before + "\n\\section{...}"+"\n"+after;
-		}
-		else if(type.equals("subsection")) {
-			contents = before + "\n\\subsection{...}"+"\n"+after;
-		}
-		else if(type.equals("subsubsection")) {
-			contents = before + "\n\\subsubsection{...}"+"\n"+after;
-		}
-		else if(type.equals("enumerate")) {
-			contents = before + 
-					"\\begin{enumerate}\n"+
-					"\\item ...\n"+
-					"\\item ...\n"+
-					"\\end{enumerate}\n"+after;
-		}
-		else if(type.equals("itemize")) {
-			contents = before + 
-					"\\begin{itemize}\n"+
-					"\\item ...\n"+
-					"\\item ...\n"+
-					"\\end{itemize}\n"+after;
-		}
-		else if(type.equals("table")) {
-			contents = before + 
-					"\\begin{table}\n"+
-					"\\caption{....}\\label{...}\n"+
-					"\\begin{tabular}{|c|c|c|}\n"+
-					"\\hline\n"+
-					"... &...&...\\\\\n"+
-					"... &...&...\\\\\n"+
-					"... &...&...\\\\\n"+
-					"\\hline\n"+
-					"\\end{tabular}\n"+
-					"\\end{table}\n"+after;
-		}
-		else if(type.equals("figure")) {
-			contents = before + 
-					"\\begin{figure}\n"+
-					"\\includegraphics[width=...,height=...]{...}\n"+
-					"\\caption{....}\\label{...}\n"+
-					"\\end{figure}\n"+after;
-;
-		}
-		latexEditorView.setText(contents);
-		latexEditorView.getController().enact("addLatex");
-		editorPane.setText(contents);
-	}
-	
-	
-	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 823, 566);
-//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -133,7 +117,7 @@ public class MainWindow {
 		mnFile.add(mntmSave);
 		JMenuItem addChapter = new JMenuItem("Add chapter");
 		JMenu mnCommands = new JMenu("Commands");
-		JMenuItem mntmLoadFile = new JMenuItem("Load file");
+		JMenuItem mntmLoadFile = new JMenuItem("Open file");
 		mntmLoadFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser filechooser = new JFileChooser();
@@ -157,7 +141,7 @@ public class MainWindow {
 		});
 		mnFile.add(mntmLoadFile);
 		
-		JMenuItem mntmSaveFile = new JMenuItem("Save file");
+		JMenuItem mntmSaveFile = new JMenuItem("Save As");
 		mntmSaveFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser filechooser = new JFileChooser();
@@ -176,12 +160,12 @@ public class MainWindow {
 		mnFile.add(mntmSaveFile);
 		
 		JMenuItem mntmExit = new JMenuItem("Exit");
-		mnFile.add(mntmExit);
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});
+		mnFile.add(mntmExit);
 		
 		
 		menuBar.add(mnCommands);
