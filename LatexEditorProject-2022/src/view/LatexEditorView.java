@@ -18,9 +18,10 @@ public class LatexEditorView {
 	private VersionsManager versionsManager;
 	
 	
-private static LatexEditorView instance = null;
+	private static LatexEditorView instance = null;
 	
 	private LatexEditorView() {
+		
 	}
 	
 	public static LatexEditorView getInstance()
@@ -71,9 +72,11 @@ private static LatexEditorView instance = null;
 	}
 
 	public String getFilename() {
+		System.out.println("LatexEditorView = "+filename);
 		return filename;
 	}
 	public void setFilename(String filename) {
+		System.out.println("LatexEditorView = "+filename);
 		this.filename = filename;
 	}
 	

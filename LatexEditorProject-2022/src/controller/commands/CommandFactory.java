@@ -8,11 +8,8 @@ import model.VersionsManager;
 import view.LatexEditorView;
 
 public class CommandFactory {
-	private DocumentManager documentManager;
-	
 	
 	public CommandFactory() {
-		documentManager = DocumentManager.getInstance();
 	}
 
 
@@ -24,7 +21,7 @@ public class CommandFactory {
 			return new ChangeVersionsStrategyCommand();
 		}
 		if(type.equals("create")) {
-			return new CreateCommand(documentManager);
+			return new CreateCommand();
 		}
 		if(type.equals("disableVersionsManagement")) {
 			return new DisableVersionsManagementCommand();

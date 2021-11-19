@@ -18,9 +18,8 @@ public class LoadCommand implements Command {
 	public LoadCommand() {
 		versionsManager = VersionsManager.getInstance();
 		latexEditorView = LatexEditorView.getInstance() ;
-		currentDocument = latexEditorView.getCurrentDocument();
-		fileName = latexEditorView.getFilename();
-		type = latexEditorView.getType();
+		
+		
 	}
 
 	public VersionsManager getVersionsManager() {
@@ -33,7 +32,9 @@ public class LoadCommand implements Command {
 	}
 	
 	public void loadFromFile() {
-		// TODO Auto-generated method stub
+		currentDocument = latexEditorView.getCurrentDocument();
+		fileName = latexEditorView.getFilename();
+		type = latexEditorView.getType();
 		String fileContents = "";
 		try {
 			Scanner scanner = new Scanner(new FileInputStream(fileName));

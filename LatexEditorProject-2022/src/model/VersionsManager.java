@@ -46,17 +46,6 @@ public class VersionsManager {
 	{
 		this.latexEditorView=latexEditorView;
 	}
-	
-	public void setCurrentVersion(Document document) {
-		latexEditorView.setCurrentDocument(document);
-	}
-	
-
-
-	public String getType() {
-		// TODO Auto-generated method stub
-		return latexEditorView.getType();
-	}
 
 
 	public void enableStrategy() {

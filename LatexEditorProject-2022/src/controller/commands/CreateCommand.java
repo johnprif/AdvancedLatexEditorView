@@ -3,24 +3,27 @@ package controller.commands;
 import model.Document;
 import model.DocumentManager;
 import model.VersionsManager;
+import view.LatexEditorView;
 
 public class CreateCommand implements Command {
 	private DocumentManager documentManager;
 	private VersionsManager versionsManager;
+	private LatexEditorView latexEditorView;
+	private String type;
 	
-	public CreateCommand(DocumentManager documentManager) {
+	public CreateCommand() {
 //		super();
-		this.documentManager = documentManager;
-//		this.versionsManager = versionsManager;
+		documentManager = DocumentManager.getInstance();
 		versionsManager = VersionsManager.getInstance();
+		latexEditorView = LatexEditorView.getInstance();
+		type = latexEditorView.getType();
 	}
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		String type = versionsManager.getType();
+		type = "bookTemplate";
 		Document document = documentManager.createDocument(type);
-		versionsManager.setCurrentVersion(document);
+		latexEditorView.setCurrentDocument(document);
 	}
 
 }
