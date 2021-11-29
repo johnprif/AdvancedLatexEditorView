@@ -17,9 +17,7 @@ public class LoadCommand implements Command {
 	
 	public LoadCommand() {
 		versionsManager = VersionsManager.getInstance();
-		latexEditorView = LatexEditorView.getInstance() ;
-		
-		
+		latexEditorView = LatexEditorView.getInstance() ;	
 	}
 
 	public VersionsManager getVersionsManager() {
@@ -34,7 +32,7 @@ public class LoadCommand implements Command {
 	public void loadFromFile() {
 		currentDocument = latexEditorView.getCurrentDocument();
 		fileName = latexEditorView.getFilename();
-		type = latexEditorView.getType();
+//		type = latexEditorView.getType();
 		String fileContents = "";
 		try {
 			Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -45,10 +43,10 @@ public class LoadCommand implements Command {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		currentDocument = new Document();
+		//currentDocument = new Document();
 		currentDocument.setContents(fileContents);
 		
-		type = "emptyTemplate";
+		//type = "emptyTemplate";
 		
 		fileContents = fileContents.trim();
 		if(fileContents.startsWith("\\documentclass[11pt,twocolumn,a4paper]{article}")) {
@@ -62,7 +60,12 @@ public class LoadCommand implements Command {
 		}
 		else if(fileContents.startsWith("\\documentclass{letter}")) {
 			type = "letterTemplate";
+		}else
+		{
+			type = "emptyTemplate";
 		}
+		latexEditorView.setType(type);
+		System.out.println("Type is = "+ type);
 	}
-
+	
 }

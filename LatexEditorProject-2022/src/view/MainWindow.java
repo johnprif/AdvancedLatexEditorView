@@ -39,8 +39,9 @@ public class MainWindow {
 	 * Create the application.
 	 * @param latexEditorView 
 	 */
-	public MainWindow(LatexEditorView latexEditorView) {
-		this.latexEditorView = latexEditorView;
+//	public MainWindow(LatexEditorView latexEditorView) {
+	public MainWindow() {
+		latexEditorView = LatexEditorView.getInstance();
 		addLatexCommand = AddLatexCommand.getInstance();
 		//this.latexEditorView = latexEditorView;
 		editorPane = latexEditorView.getJEditorPane();
@@ -67,7 +68,8 @@ public class MainWindow {
 		JMenuItem mntmNewFile = new JMenuItem("New file");
 		mntmNewFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ChooseTemplate chooseTemplate = new ChooseTemplate(latexEditorView, "main");
+//				ChooseTemplate chooseTemplate = new ChooseTemplate(latexEditorView, "main");
+				ChooseTemplate chooseTemplate = new ChooseTemplate("main");
 				frame.dispose();
 			}
 		});
@@ -90,7 +92,7 @@ public class MainWindow {
 				int option = filechooser.showOpenDialog(null);
 				if(option == JFileChooser.APPROVE_OPTION) {
 					String filename = filechooser.getSelectedFile().toString();
-					
+					System.out.println("I AM THE MAIN WINDOW AN THIS IS A LOAD FILE SPEAKING");
 					latexEditorView.setFilename(filename);
 					latexEditorView.getController().enact("load");
 					mnCommands.setEnabled(true);
@@ -102,6 +104,7 @@ public class MainWindow {
 						addChapter.setEnabled(false);
 					}
 					editorPane.setText(latexEditorView.getCurrentDocument().getContents());
+					System.out.println(latexEditorView.getCurrentDocument().getContents());
 				}
 			}
 		});

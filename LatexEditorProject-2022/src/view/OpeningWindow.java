@@ -18,7 +18,8 @@ import java.awt.event.ActionEvent;
 public class OpeningWindow {
 
 	private JFrame frame;
-	private LatexEditorView latexEditorView; // == null
+//	private LatexEditorView latexEditorView; // == null
+	private LatexEditorView latexEditorView;
 	/**
 	 * Launch the application.
 	 */
@@ -63,7 +64,8 @@ public class OpeningWindow {
 		JButton btnCreateNewDocument = new JButton("Create New Document");
 		btnCreateNewDocument.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ChooseTemplate chooseTemplate = new ChooseTemplate(latexEditorView, "opening");
+//				ChooseTemplate chooseTemplate = new ChooseTemplate(latexEditorView, "opening");
+				ChooseTemplate chooseTemplate = new ChooseTemplate("opening");
 				frame.dispose();
 			}
 		});

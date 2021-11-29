@@ -16,12 +16,11 @@ public class CreateCommand implements Command {
 		documentManager = DocumentManager.getInstance();
 		versionsManager = VersionsManager.getInstance();
 		latexEditorView = LatexEditorView.getInstance();
-		type = latexEditorView.getType();
 	}
 
 	@Override
 	public void execute() {
-		type = "bookTemplate";
+		type = latexEditorView.getType();
 		Document document = documentManager.createDocument(type);
 		latexEditorView.setCurrentDocument(document);
 	}
