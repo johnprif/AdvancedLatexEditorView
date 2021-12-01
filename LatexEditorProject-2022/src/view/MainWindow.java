@@ -92,7 +92,6 @@ public class MainWindow {
 				int option = filechooser.showOpenDialog(null);
 				if(option == JFileChooser.APPROVE_OPTION) {
 					String filename = filechooser.getSelectedFile().toString();
-					System.out.println("I AM THE MAIN WINDOW AN THIS IS A LOAD FILE SPEAKING");
 					latexEditorView.setFilename(filename);
 					latexEditorView.getController().enact("load");
 					mnCommands.setEnabled(true);
