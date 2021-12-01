@@ -7,6 +7,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JTextPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import controller.LatexEditorController;
 import controller.commands.AddLatexCommand;
@@ -89,6 +90,9 @@ public class MainWindow {
 		mntmLoadFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser filechooser = new JFileChooser();
+				//We add here file a type filter for latex and html
+				FileNameExtensionFilter types = new FileNameExtensionFilter("LATEX, HTML", "tex", "html");
+				filechooser.setFileFilter(types);
 				int option = filechooser.showOpenDialog(null);
 				if(option == JFileChooser.APPROVE_OPTION) {
 					String filename = filechooser.getSelectedFile().toString();
@@ -116,7 +120,9 @@ public class MainWindow {
 				int option = filechooser.showSaveDialog(null);
 				if(option == JFileChooser.APPROVE_OPTION) {
 					String filename = filechooser.getSelectedFile().toString();
-					if(filename.endsWith(".tex") == false) {
+					if(filename.endsWith(".tex") == false && filename.endsWith(".html") == false)
+					{
+						//Default choise
 						filename = filename+".tex";
 					}
 					latexEditorView.setFilename(filename);
