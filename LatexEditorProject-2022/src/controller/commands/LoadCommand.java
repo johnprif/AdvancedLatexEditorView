@@ -32,7 +32,6 @@ public class LoadCommand implements Command {
 	public void loadFromFile() {
 		currentDocument = latexEditorView.getCurrentDocument();
 		fileName = latexEditorView.getFilename();
-//		type = latexEditorView.getType();
 		String fileContents = "";
 		try {
 			Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -40,13 +39,9 @@ public class LoadCommand implements Command {
 				fileContents = fileContents + scanner.nextLine() + "\n";
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//currentDocument = new Document();
 		currentDocument.setContents(fileContents);
-		
-		//type = "emptyTemplate";
 		
 		fileContents = fileContents.trim();
 		if(fileContents.startsWith("\\documentclass[11pt,twocolumn,a4paper]{article}")) {
@@ -65,7 +60,6 @@ public class LoadCommand implements Command {
 			type = "emptyTemplate";
 		}
 		latexEditorView.setType(type);
-		System.out.println("Type is = "+ type);
 	}
 	
 }

@@ -1,10 +1,7 @@
 package Conveter;
 
-import java.util.HashMap;
-
 public class latexToHtml 
 {
-	private HashMap<String, String> latexToHtmlValues;
 	private String laTexContents;
 	private String htmlContents;
 	private String[] latexLines;
@@ -45,7 +42,7 @@ public class latexToHtml
 					+"<p>"+closingText+"</p>"
 					+"<p>PS.</p>"
 					+"<p>"+psText+"</p>";
-		}else
+		}else //article, book, report
 		{
 			for(int i=0; i<latexLines.length-1; i++)
 			{

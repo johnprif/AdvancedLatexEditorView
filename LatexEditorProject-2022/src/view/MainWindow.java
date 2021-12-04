@@ -107,7 +107,6 @@ public class MainWindow {
 						addChapter.setEnabled(false);
 					}
 					editorPane.setText(latexEditorView.getCurrentDocument().getContents());
-					System.out.println(latexEditorView.getCurrentDocument().getContents());
 				}
 			}
 		});
