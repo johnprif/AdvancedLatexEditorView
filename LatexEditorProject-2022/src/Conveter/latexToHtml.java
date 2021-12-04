@@ -50,10 +50,10 @@ public class latexToHtml
 				if(latexLines[i].contains("chapter") && !latexLines[i].contains("chapter*"))
 				{
 					htmlContents = htmlContents + "<h1 id=\""+temp[0].substring(8, temp[0].length())+"\">"+temp[0].substring(8, temp[0].length())+"</h1>" +"\n";
-				}else if(latexLines[i].contains("section") && !latexLines[i].contains("section*"))
+				}else if(latexLines[i].contains("section") && !latexLines[i].contains("section*") && !latexLines[i].contains("subsection") && !latexLines[i].contains("subsubsection"))
 				{
 					htmlContents = htmlContents + "<h2 id=\""+temp[0].substring(8, temp[0].length())+"\">"+temp[0].substring(8, temp[0].length())+"</h2>" +"\n";
-				}else if(latexLines[i].contains("subsection"))
+				}else if(latexLines[i].contains("subsection") && !latexLines[i].contains("subsubsection"))
 				{
 					htmlContents = htmlContents + "<h3 id=\""+temp[0].substring(11, temp[0].length())+"\">"+temp[0].substring(11, temp[0].length())+"</h3>" +"\n";
 				}else if(latexLines[i].contains("subsubsection"))
@@ -71,6 +71,27 @@ public class latexToHtml
 				}else if(latexLines[i].contains("par"))
 				{
 					htmlContents = htmlContents + "<p id=\""+temp[0].substring(4, temp[0].length())+"\">"+temp[0].substring(4, temp[0].length())+"</p>" +"\n";
+				}else if(latexLines[i].contains("begin{enumerate}"))
+				{
+					htmlContents = htmlContents + "<ol>" +"\n";
+				}else if(latexLines[i].contains("item") && !latexLines[i].contains("begin{itemize}") && !latexLines[i].contains("end{itemize}"))
+				{
+					htmlContents = htmlContents + "<li id=\""+latexLines[i].substring(5, latexLines[i].length())+"\">"+latexLines[i].substring(5, latexLines[i].length())+"</li>" +"\n";
+				}else if(latexLines[i].contains("end{enumerate}"))
+				{
+					htmlContents = htmlContents + "</ol>" +"\n";
+				}else if(latexLines[i].contains("begin{itemize}"))
+				{
+					htmlContents = htmlContents + "<ul>" +"\n";
+				}else if(latexLines[i].contains("item") && !latexLines[i].contains("begin{itemize}") && !latexLines[i].contains("end{itemize}"))
+				{
+					htmlContents = htmlContents + "<dt id=\""+latexLines[i].substring(5, latexLines[i].length())+"\">"+latexLines[i].substring(5, latexLines[i].length())+"</dt>" +"\n";
+				}else if(latexLines[i].contains("end{itemize}"))
+				{
+					htmlContents = htmlContents + "</ul>" +"\n";
+				}else if(latexLines[i].contains("text"))
+				{
+					htmlContents = htmlContents + "<dd id=\""+latexLines[i].substring(5, latexLines[i].length())+"\">"+latexLines[i].substring(5, latexLines[i].length())+"</dd>" +"\n";
 				}
 			}
 		}
