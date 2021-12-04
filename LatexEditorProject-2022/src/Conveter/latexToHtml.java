@@ -12,9 +12,7 @@ public class latexToHtml
 	public latexToHtml(String laTexContents)
 	{
 		this.laTexContents = laTexContents;
-		latexToHtmlValues = new HashMap<String, String>();
 		htmlContents = "";
-		makeDictionary();
 		getLines();
 		convertTatexToHtml();
 	}
@@ -29,16 +27,8 @@ public class latexToHtml
 		latexLines = laTexContents.split("\\\\");
 	}
 	
-	private void makeDictionary()
-	{
-		latexToHtmlValues.put("chapter", "<h1>");
-		latexToHtmlValues.put("section", "<h2>");
-		latexToHtmlValues.put("par", "<p>");
-	}
-	
 	private void convertTatexToHtml()
 	{
-		System.out.println(latexLines[1]);
 		if(latexLines[1].contains("letter"))
 		{
 			String destinationAddress = latexLines[6].substring(14, latexLines[6].length()-2);//begin
@@ -59,8 +49,6 @@ public class latexToHtml
 		{
 			for(int i=0; i<latexLines.length-1; i++)
 			{
-				System.out.println(latexLines[i]);
-				System.out.println("-------------------------------------------------------");
 				String[] temp = latexLines[i].split("}");
 				if(latexLines[i].contains("chapter") && !latexLines[i].contains("chapter*"))
 				{
@@ -83,6 +71,9 @@ public class latexToHtml
 				}else if(latexLines[i].contains("section*"))
 				{
 					htmlContents = htmlContents + "<h1 class=\"unnumbered\" id=\""+temp[0].substring(9, temp[0].length())+"\">"+temp[0].substring(9, temp[0].length())+"</h1>" +"\n";
+				}else if(latexLines[i].contains("par"))
+				{
+					htmlContents = htmlContents + "<p id=\""+temp[0].substring(4, temp[0].length())+"\">"+temp[0].substring(4, temp[0].length())+"</p>" +"\n";
 				}
 			}
 		}
