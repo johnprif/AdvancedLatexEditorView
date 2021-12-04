@@ -26,7 +26,7 @@ public class latexToHtml
 	
 	private void convertTatexToHtml()
 	{	
-		if(laTexContents.length() != 0)
+		if(laTexContents.length() != 0) //check if is not blank 
 		{
 			if(latexLines[1].contains("letter"))
 			{
