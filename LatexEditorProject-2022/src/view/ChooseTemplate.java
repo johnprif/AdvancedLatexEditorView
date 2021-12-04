@@ -108,9 +108,7 @@ public class ChooseTemplate {
 				else {
 					latexEditorView.setType("emptyTemplate");
 				}
-				System.out.println("I AM ChooseTemplate and TYPE is = "+latexEditorView.getType());
 				latexEditorView.getController().enact("create");
-//				MainWindow mainWindow = new MainWindow(latexEditorView);
 				MainWindow mainWindow = new MainWindow();
 				frame.dispose();
 			}
@@ -122,7 +120,6 @@ public class ChooseTemplate {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(previous.equals("main")) {
-//					MainWindow mainWindow = new MainWindow(latexEditorView);
 					MainWindow mainWindow = new MainWindow();
 					frame.dispose();
 				}

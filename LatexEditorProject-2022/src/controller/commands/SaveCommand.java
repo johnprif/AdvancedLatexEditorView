@@ -1,5 +1,6 @@
 package controller.commands;
 
+import Conveter.latexToHtml;
 import model.Document;
 import model.DocumentManager;
 import model.VersionsManager;
@@ -11,10 +12,12 @@ public class SaveCommand implements Command {
 	private LatexEditorView latexEditorView;
 	private Document document;
 	private String fileName;
+	private latexToHtml converter;
 	
 	public SaveCommand() {
 		versionsManager = VersionsManager.getInstance();
 		latexEditorView = LatexEditorView.getInstance() ;
+		
 	}
 	@Override
 	public void execute() {
@@ -24,9 +27,17 @@ public class SaveCommand implements Command {
 	private void saveToFile() {
 		document = latexEditorView.getCurrentDocument();
 		fileName = latexEditorView.getFilename();
-		document.save(fileName);
+//		document.save(fileName);
 		
-		System.out.println("Save Commands contents = "+document.getContents());
+		if(fileName.endsWith(".html") == true)
+		{
+			converter = new latexToHtml(document.getContents());
+			document.setContents(converter.getHtmlContents());
+			document.save(fileName);
+		}else
+		{
+			document.save(fileName);
+		}
 	}
 //----------------------------------------------------------------
 }

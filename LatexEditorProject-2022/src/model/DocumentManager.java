@@ -2,6 +2,8 @@ package model;
 
 import java.util.HashMap;
 
+import Conveter.latexToHtml;
+
 public class DocumentManager {
 	private HashMap<String, Document> templates;
 	Document document;
@@ -37,6 +39,7 @@ public class DocumentManager {
 	public String getContents(String type) {
 		HashMap<String, String> temp1 = new HashMap<String, String>();
 		addContents(temp1);
+		//lala.htmltemplate(temp1);
 		return temp1.get(type);	
 	}
 	
@@ -47,7 +50,7 @@ public class DocumentManager {
 						"\\documentclass[11pt,twocolumn,a4paper]{article}\n\n"+
 						"\\begin{document}\n"+
 						"\\title{Article: How to Structure a LaTeX Document}\n"+
-						"\\author{Author1 \\and Author2 \\and ...}\n"+
+						"\\author{Author...}\n"+
 						"\\date{\\today}\n\n"+
 						"\\maketitle\n\n"+
 						"\\section{Section Title 1}\n\n"+
@@ -60,7 +63,7 @@ public class DocumentManager {
 						"\\documentclass[11pt,a4paper]{book}\n\n"+
 						"\\begin{document}\n"+
 						"\\title{Book: How to Structure a LaTeX Document}\n"+
-						"\\author{Author1 \\and Author2 \\and ...}\n"+
+						"\\author{Author...}\n"+
 						"\\date{\\today}\n\n"+
 						"\\maketitle\n\n"+
 						"\\frontmatter\n\n"+
@@ -96,7 +99,7 @@ public class DocumentManager {
 						"\\documentclass[11pt,a4paper]{report}\n\n"+
 						"\\begin{document}\n"+
 						"\\title{Report Template: How to Structure a LaTeX Document}\n"+
-						"\\author{Author1 \\and Author2 \\and ...}\n"+
+						"\\author{Author...}\n"+
 						"\\date{\\today}\n"+
 						"\\maketitle\n\n"+
 						"\\begin{abstract}\n"+
