@@ -12,7 +12,6 @@ public class CreateCommand implements Command {
 	private String type;
 	
 	public CreateCommand() {
-//		super();
 		documentManager = DocumentManager.getInstance();
 		versionsManager = VersionsManager.getInstance();
 		latexEditorView = LatexEditorView.getInstance();

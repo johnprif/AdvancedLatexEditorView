@@ -6,8 +6,6 @@ public class EnableVersionsManagementCommand implements Command {
 	private VersionsManager versionsManager;
 	
 	public EnableVersionsManagementCommand() {
-		super();
-//		this.versionsManager = versionsManager;
 		versionsManager = VersionsManager.getInstance();
 	}
 

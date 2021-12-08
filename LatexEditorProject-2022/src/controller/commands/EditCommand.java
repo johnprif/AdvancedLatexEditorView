@@ -11,8 +11,6 @@ public class EditCommand implements Command {
 	private String text;
 	
 	public EditCommand() {
-//		super();
-//		this.versionsManager = versionsManager;
 		versionsManager = VersionsManager.getInstance();
 		latexEditorView = LatexEditorView.getInstance();
 		
@@ -22,7 +20,6 @@ public class EditCommand implements Command {
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
-//		versionsManager.saveContents();
 		saveContents();
 	}
 	

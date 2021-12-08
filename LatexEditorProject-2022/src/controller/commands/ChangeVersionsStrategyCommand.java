@@ -6,7 +6,6 @@ public class ChangeVersionsStrategyCommand implements Command {
 	private VersionsManager versionsManager;
 	
 	public ChangeVersionsStrategyCommand() {
-//		super();
 		versionsManager = VersionsManager.getInstance();
 	}
 

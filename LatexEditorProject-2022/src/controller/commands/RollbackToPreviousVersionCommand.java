@@ -7,7 +7,6 @@ public class RollbackToPreviousVersionCommand implements Command {
 	
 	
 	public RollbackToPreviousVersionCommand() {
-//		this.versionsManager = versionsManager;
 		versionsManager = VersionsManager.getInstance();
 	}
 

@@ -39,7 +39,6 @@ public class DocumentManager {
 	public String getContents(String type) {
 		HashMap<String, String> temp1 = new HashMap<String, String>();
 		addContents(temp1);
-		//lala.htmltemplate(temp1);
 		return temp1.get(type);	
 	}
 	

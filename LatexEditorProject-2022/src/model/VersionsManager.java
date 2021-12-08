@@ -55,7 +55,6 @@ public class VersionsManager {
 			enable();
 		}
 		else if(strategyType.equals("stable") && strategy instanceof VolatileVersionsStrategy) {
-			//allagh apo to ena sto allo
 			VersionsStrategy newStrategy = new StableVersionsStrategy();
 			newStrategy.setEntireHistory(strategy.getEntireHistory());
 			strategy = newStrategy;
@@ -111,9 +110,4 @@ public class VersionsManager {
 		}
 		
 	}
-
-//	public VersionsStrategy getStrategy() {
-//		// TODO Auto-generated method stub
-//		return strategy;
-//	}
 }
