@@ -27,7 +27,6 @@ public class SaveCommand implements Command {
 	private void saveToFile() {
 		document = latexEditorView.getCurrentDocument();
 		fileName = latexEditorView.getFilename();
-//		document.save(fileName);
 		
 		if(fileName.endsWith(".html") == true)
 		{
