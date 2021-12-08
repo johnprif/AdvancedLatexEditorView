@@ -19,9 +19,7 @@ public class ChooseTemplate {
 	 * Create the application.
 	 * @param latexEditorView 
 	 */
-//	public ChooseTemplate(LatexEditorView latexEditorView, String previous) {
 	public ChooseTemplate(String previous) {
-//		this.latexEditorView = latexEditorView;
 		latexEditorView = LatexEditorView.getInstance();
 		this.previous = previous;
 		initialize();
@@ -41,7 +39,6 @@ public class ChooseTemplate {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-//		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JRadioButton book = new JRadioButton("Book");
