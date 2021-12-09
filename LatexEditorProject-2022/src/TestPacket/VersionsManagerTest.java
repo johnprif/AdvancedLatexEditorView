@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import controller.commands.DisableVersionsManagementCommand;
 import model.VersionsManager;
 import model.strategies.StableVersionsStrategy;
 import model.strategies.VolatileVersionsStrategy;
@@ -73,4 +74,14 @@ class VersionsManagerTest {
 		assertEquals(versionsManager.isEnabled(), true);
 	}
 
+	@Test
+	void disableStrategyTrackingTest() {
+		DisableVersionsManagementCommand  disableVersionsManagementCommand = new  DisableVersionsManagementCommand();
+		
+		versionsManager.setStrategy(new VolatileVersionsStrategy()); //before
+		latexEditorView.setStrategy("volatile"); //after
+		disableVersionsManagementCommand.execute(); //versionsManager.disable();
+		assertEquals(versionsManager.isEnabled(), false);
+	}
+	
 }
