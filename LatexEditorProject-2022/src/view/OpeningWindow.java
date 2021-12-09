@@ -20,7 +20,6 @@ import java.awt.event.ActionEvent;
 public class OpeningWindow {
 
 	private JFrame frame;
-//	private LatexEditorView latexEditorView; // == null
 	private LatexEditorView latexEditorView;
 	/**
 	 * Launch the application.

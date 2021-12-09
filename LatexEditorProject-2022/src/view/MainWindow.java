@@ -26,7 +26,6 @@ import javax.swing.JCheckBoxMenuItem;
 public class MainWindow {
 
 	private JFrame frame;
-	//private JEditorPane editorPane = new JEditorPane();
 	private LatexEditorView latexEditorView;
 	private JEditorPane editorPane;
 	private AddLatexCommand addLatexCommand;
@@ -40,11 +39,9 @@ public class MainWindow {
 	 * Create the application.
 	 * @param latexEditorView 
 	 */
-//	public MainWindow(LatexEditorView latexEditorView) {
 	public MainWindow() {
 		latexEditorView = LatexEditorView.getInstance();
 		addLatexCommand = AddLatexCommand.getInstance();
-		//this.latexEditorView = latexEditorView;
 		editorPane = latexEditorView.getJEditorPane();
 		initialize();
 		frame.setVisible(true);
@@ -69,7 +66,6 @@ public class MainWindow {
 		JMenuItem mntmNewFile = new JMenuItem("New file");
 		mntmNewFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-//				ChooseTemplate chooseTemplate = new ChooseTemplate(latexEditorView, "main");
 				ChooseTemplate chooseTemplate = new ChooseTemplate("main");
 				frame.dispose();
 			}
