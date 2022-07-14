@@ -38,6 +38,7 @@ public class ChooseTemplate {
 	}
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("AdvancedLatexEditorView");
 		frame.setBounds(100, 100, 450, 300);
 		frame.getContentPane().setLayout(null);
 		
