@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class OpeningWindow {
@@ -62,6 +64,17 @@ public class OpeningWindow {
 		frame.setBounds(100, 100, 450, 300);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
+		
+		// Add window listener by implementing WindowAdapter class to
+        // the frame instance. To handle the close event we just need
+        // to implement the windowClosing() method.
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+		
 		JButton btnCreateNewDocument = new JButton("Create New Document");
 		btnCreateNewDocument.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

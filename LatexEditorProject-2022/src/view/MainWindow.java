@@ -18,12 +18,14 @@ import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
 
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JCheckBoxMenuItem;
 
-public class MainWindow {
+public class MainWindow{
 
 	private JFrame frame;
 	private LatexEditorView latexEditorView;
@@ -54,12 +56,22 @@ public class MainWindow {
 		frame = new JFrame();
 		frame.setTitle("AdvancedLatexEditorView");
 		frame.setBounds(100, 100, 823, 566);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 805, 26);
 		frame.getContentPane().add(menuBar);
+		
+		// Add window listener by implementing WindowAdapter class to
+        // the frame instance. To handle the close event we just need
+        // to implement the windowClosing() method.
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.out.println("WindowClosingDemo.windowClosing");
+                System.exit(0);
+            }
+        });
 		
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
