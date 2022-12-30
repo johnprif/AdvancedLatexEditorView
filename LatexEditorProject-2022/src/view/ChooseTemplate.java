@@ -41,7 +41,7 @@ public class ChooseTemplate {
 		frame.setTitle("AdvancedLatexEditorView");
 		frame.setBounds(100, 100, 450, 300);
 		frame.getContentPane().setLayout(null);
-		
+		frame.setResizable(false);
 		JRadioButton book = new JRadioButton("Book");
 		JRadioButton article = new JRadioButton("Article");
 		JRadioButton report = new JRadioButton("Report");

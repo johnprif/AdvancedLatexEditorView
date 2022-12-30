@@ -56,7 +56,7 @@ public class MainWindow {
 		frame.setBounds(100, 100, 823, 566);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		frame.setResizable(false);
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 805, 26);
 		frame.getContentPane().add(menuBar);

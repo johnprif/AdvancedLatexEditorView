@@ -61,7 +61,7 @@ public class OpeningWindow {
 		frame.setTitle("AdvancedLatexEditorView");
 		frame.setBounds(100, 100, 450, 300);
 		frame.getContentPane().setLayout(null);
-		
+		frame.setResizable(false);
 		JButton btnCreateNewDocument = new JButton("Create New Document");
 		btnCreateNewDocument.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
