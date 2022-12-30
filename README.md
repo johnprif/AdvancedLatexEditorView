@@ -9,3 +9,10 @@
 - The user can save the Latex file in a new Html file or in the existing one (the conversion from Latex to Html is done automatically) **(Under construction)**
 - The user can load a Latex file from the operating system and edit it
 - The user can load an Html file from the operating system which is automatically converted to Latex and thus the user can edit **(Under construction)**
+
+
+![Screenshot (4)](https://user-images.githubusercontent.com/56134761/210099244-85fe31fc-c35b-425e-ac27-4ff160e19af4.png)
+
+![Screenshot (5)](https://user-images.githubusercontent.com/56134761/210099251-98adf9fd-6f02-4013-a0c1-097ada30aac6.png)
+
+![Screenshot (6)](https://user-images.githubusercontent.com/56134761/210099256-d0f8e653-ddca-46d6-8be6-9ff24f93dfde.png)
