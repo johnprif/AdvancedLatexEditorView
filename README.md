@@ -1,0 +1,2 @@
+# AdvancedLatexEditorView
+#### It is a program that helps the user to compose a text in Latex using some ready-made templates and editing the content appropriately, allowing him to save at different times and come back to them depending on which stratagem he has chosen. Finally, it is given the possibility to load a Latex or Html file from the computer's file system and edit it and in addition it can save it in Latex format even in Html 
