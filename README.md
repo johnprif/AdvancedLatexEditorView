@@ -10,6 +10,10 @@
 - The user can load a Latex file from the operating system and edit it
 - The user can load an Html file from the operating system which is automatically converted to Latex and thus the user can edit **(Under construction)**
 
+**About the code**
+- IDE: Eclipse IDE 2022-06
+- back-end: Java 13.0.2
+- front-end: Java Swing
 
 ![Screenshot (4)](https://user-images.githubusercontent.com/56134761/210099244-85fe31fc-c35b-425e-ac27-4ff160e19af4.png)
 
